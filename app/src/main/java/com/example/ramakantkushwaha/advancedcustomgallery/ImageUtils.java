@@ -33,6 +33,8 @@ public class ImageUtils {
                 String id = cursor.getString(cursor.getColumnIndex(pictureCols[0]));
                 String imageUri = cursor.getString(cursor.getColumnIndex(pictureCols[1]));
                 String bucket = cursor.getString(cursor.getColumnIndex(pictureCols[2]));
+//
+//                Log.d("getImagesFromExternal", "id/ " + id + "imageUri/ "+ imageUri + "bucket/ "+ bucket);
 
                 if(folders.containsKey(bucket)){
                     folders.get(bucket).add(imageUri);
@@ -49,6 +51,8 @@ public class ImageUtils {
             cursor.close();
         }
         System.out.print(folders.size());
+
+
         return folders;
     }
     public static DisplayImageOptions universalImageConfiguration(final int width,final int height) {

@@ -1,6 +1,8 @@
 package com.example.ramakantkushwaha.advancedcustomgallery;
 
 import android.annotation.TargetApi;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -125,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
                 ((ImageView)view.findViewById(R.id.folderImage)).setAlpha(255);
             } else {
-                ((ImageView)view.findViewById(R.id.folderImage)).setImageAlpha(255);
+                ((ImageView)view.findViewById(R.id.folderImage)).clearColorFilter();
             }
             selected--;
 
@@ -137,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
                     ((ImageView) view.findViewById(R.id.folderImage)).setAlpha(100);
                 } else {
-                    ((ImageView) view.findViewById(R.id.folderImage)).setImageAlpha(100);
+                    ((ImageView) view.findViewById(R.id.folderImage)).setColorFilter(Color.argb(180, 53, 53, 53), PorterDuff.Mode.SRC_ATOP);
                 }
                 selected++;
             }

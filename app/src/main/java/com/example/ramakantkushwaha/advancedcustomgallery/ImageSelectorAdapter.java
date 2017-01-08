@@ -3,8 +3,11 @@ package com.example.ramakantkushwaha.advancedcustomgallery;
 /**
  * Created by ramakant.kushwaha on 10/28/2015.
  */
+
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -26,6 +28,7 @@ public class ImageSelectorAdapter extends BaseAdapter {
     LayoutInflater layoutInflater;
     final int THUMBSIZE = 150;
     private DisplayImageOptions options;
+    Paint paint = new Paint();
 
 
 
@@ -33,6 +36,8 @@ public class ImageSelectorAdapter extends BaseAdapter {
         this.imageList = imageList;
         layoutInflater = LayoutInflater.from(context);
         options = ImageUtils.universalImageConfiguration(context.getResources().getDimensionPixelSize(R.dimen.gallery_image_size),context.getResources().getDimensionPixelSize(R.dimen.gallery_image_size));
+        paint.setColor(Color.BLACK);
+        paint.setAlpha(70);
     }
 
     public ArrayList<String> getAllSelectedImages(){
@@ -92,16 +97,16 @@ public class ImageSelectorAdapter extends BaseAdapter {
         if(imageUri.isSelected()){
             viewHolder.greenTick.setVisibility(View.VISIBLE);
             if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                ((ImageView)view.findViewById(R.id.folderImage)).setAlpha(100);
+                ((ImageView)view.findViewById(R.id.folderImage)).setBackgroundColor(paint.getColor());
             } else {
-                ((ImageView)view.findViewById(R.id.folderImage)).setImageAlpha(100);
+                ((ImageView)view.findViewById(R.id.folderImage)).setBackgroundColor(paint.getColor());
             }
         }else{
             viewHolder.greenTick.setVisibility(View.GONE);
             if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                ((ImageView)view.findViewById(R.id.folderImage)).setAlpha(255);
+                ((ImageView)view.findViewById(R.id.folderImage)).setBackgroundColor(Color.WHITE);
             } else {
-                ((ImageView)view.findViewById(R.id.folderImage)).setImageAlpha(255);
+                ((ImageView)view.findViewById(R.id.folderImage)).setBackgroundColor(Color.WHITE);
             }
         }
 

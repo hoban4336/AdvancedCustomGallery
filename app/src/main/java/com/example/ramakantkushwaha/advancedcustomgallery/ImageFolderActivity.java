@@ -26,7 +26,7 @@ public class ImageFolderActivity extends AppCompatActivity implements AdapterVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initActionbar();
+       // initActionbar();
         gridView = (GridView) findViewById(R.id.imageGrid);
 
     }
